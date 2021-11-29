@@ -1,0 +1,19 @@
+import os
+path = "F:/demo6/photo"
+path1 = "F:/demo6/photo1"
+filelist = os.listdir(path)
+
+filelist = os.listdir(path)
+count = 0
+for file in filelist:
+    print(file)
+for file in filelist:
+    Olddir = os.path.join(path, file)
+    if os.path.isdir(Olddir):
+        continue
+    filename = os.path.splitext(file)[0]
+    filetype = os.path.splitext(file)[1]
+    Newdir = os.path.join(path1, str(count).zfill(4) + filetype)
+    os.rename(Olddir, Newdir)
+
+    count += 1
